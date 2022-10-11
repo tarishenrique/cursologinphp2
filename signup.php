@@ -4,7 +4,7 @@
     <div class="col-md-6 offset-md-3">
         <h2>Cadastrar usuário</h2>
 
-        <form action="signup.salvar.php" method="POST">
+        <form action="includes/signup.salvar.php" method="POST">
 
             <div>
                 <input type="text" class="form-control" placeholder="Nome Completo:" name="txtNome">
