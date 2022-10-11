@@ -4,7 +4,7 @@
     <div class="col-md-6 offset-md-3">
         <h2>Login</h2>
 
-        <form action="login.salvar.php" method="POST">
+        <form action="includes/login.salvar.php" method="POST">
 
             <div>
                 <input type="text" class="form-control" placeholder="Usuário ou Email" name="txtLogin">
