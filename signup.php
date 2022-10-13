@@ -13,7 +13,7 @@
                 <input type="text" class="form-control" placeholder="Email:" name="txtEmail">
             </div>
             <div>
-                <input type="text" class="form-control" placeholder="Usuário" name="txtUid">
+                <input type="text" class="form-control" placeholder="Usuário" name="txtUsuario">
             </div>
             <div>
                 <input type="password" class="form-control" placeholder="Digite a senha" name="txtSenha">
