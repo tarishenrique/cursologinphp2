@@ -11,23 +11,23 @@ if (isset($_POST["submit"])) {
     require_once 'conecta_db.php';
     require_once 'funcoes.php';
 
-    if (emptyInputSignup($nome, $email, $usuario, $senha, $senharepete) !== false) {
+    if (emptyInputSignup($nome, $email, $usuario, $senha, $senharepete)) {
         header("location: ../signup.php?error=emptyinput");
         exit();
     }
-    if (invalidUsuario($usuario) !== false) {
+    if (invalidUsuario($usuario)) {
         header("location: ../signup.php?error=invalidusuario");
         exit();
     }
-    if (invalidEmail($email) !== false) {
+    if (invalidEmail($email)) {
         header("location: ../signup.php?error=invalidemail");
         exit();
     }
-    if (senhaValidar($senha, $senharepete) !== false) {
+    if (senhaValidar($senha, $senharepete)) {
         header("location: ../signup.php?error=senhanaoiguais");
         exit();
     }
-    if (usuarioExiste($conn, $usuario, $email) !== false) {
+    if (usuarioExiste($conn, $usuario, $email)) {
         header("location: ../signup.php?error=usuariojaexiste");
         exit();
     }
@@ -35,6 +35,9 @@ if (isset($_POST["submit"])) {
     criarUsuario($conn, $nome, $email, $usuario, $senha);
 } else {
 
-    header("location: ../signup.php");
-    exit();
+    echo "<h1>Falha ao cadastrar cliente</h1>
+
+    <a class=\"btn btn-success\" href=\"../signup.php\" role=\"button\">Cadastrar Novo Usuário</a>
+    <a class=\"btn btn-info\" href=\"../index.php\" role=\"button\">Página Inicial</a>
+    ";
 }
