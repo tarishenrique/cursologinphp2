@@ -24,7 +24,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
     if (senhaValidar($senha, $senharepete)) {
-        header("location: ../signup.php?error=senhanaoiguais");
+        header("location: ../signup.php?error=senhasnaoiguais");
         exit();
     }
     if (usuarioExiste($conn, $usuario, $email)) {

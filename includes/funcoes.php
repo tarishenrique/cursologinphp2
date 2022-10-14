@@ -93,11 +93,6 @@ function criarUsuario($conn, $nome, $email, $usuario, $senha)
 
     mysqli_stmt_close($stmt);
 
-    /*header("location: ../signup.php?error=nenhum");
-    exit();*/
-    echo "<h1>Cliente cadastrado com sucesso</h1>
-
-    <a class=\"btn btn-success\" href=\"../signup.php\" role=\"button\">Cadastrar Novo Usuário</a>
-    <a class=\"btn btn-info\" href=\"../index.php\" role=\"button\">Página Inicial</a>
-    ";
+    header("location: ../signup.php?error=nenhum");
+    exit();
 }
