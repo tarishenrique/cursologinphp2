@@ -23,7 +23,7 @@
             </div>
             <br>
 
-            <button type="submit" name="botaoSubmit" class="btn btn-primary">Enviar</button>
+            <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
         </form>
 
     </div>

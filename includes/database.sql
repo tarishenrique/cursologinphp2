@@ -1,8 +1,8 @@
 CREATE TABLE users(
     usersId INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    usersName VARCHAR(128) NOT NULL,
+    usersNome VARCHAR(128) NOT NULL,
     usersEmail VARCHAR(128) NOT NULL,
-    usersUid VARCHAR(128) NOT NULL,
-    usersPwd VARCHAR(128) NOT NULL
+    usersUsuario VARCHAR(128) NOT NULL,
+    usersSenha VARCHAR(128) NOT NULL
 )
 
