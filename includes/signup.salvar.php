@@ -8,8 +8,8 @@ if (isset($_POST["submit"])) {
     $senha = $_POST["txtSenha"];
     $senharepete = $_POST["txtSenhaRepete"];
 
-    require_once './includes/conecta_db.php';
-    require_once './includes/funcoes.php';
+    require_once 'conecta_db.php';
+    require_once 'funcoes.php';
 
     if (emptyInputSignup($nome, $email, $usuario, $senha, $senharepete) !== false) {
         header("location: ../signup.php?error=emptyinput");
@@ -27,13 +27,14 @@ if (isset($_POST["submit"])) {
         header("location: ../signup.php?error=senhanaoiguais");
         exit();
     }
-    if (usuarioExiste($conn, $usuario) !== false) {
+    if (usuarioExiste($conn, $usuario, $email) !== false) {
         header("location: ../signup.php?error=usuariojaexiste");
         exit();
     }
 
     criarUsuario($conn, $nome, $email, $usuario, $senha);
 } else {
+
     header("location: ../signup.php");
     exit();
 }

@@ -2,10 +2,10 @@
 
 //https://therichpost.com/insert-fetch-fullcalendar-events-mysql-database/
 
-$servername = "192.168.0.101";
-$username = "root";
-$password = "";
-$dbname = "cursologinphp2";
+$servername = "localhost";
+$username = "tarishen_admin";
+$password = "Banco*2022";
+$dbname = "tarishen_cursologinphp2";
 
 // Criando nova conexão 
 global $conn;
@@ -58,62 +58,3 @@ function retornarContagem($sql)
     $count = mysqli_fetch_assoc($result)['COUNT(*)'];
     return $count;
 }
-
-/*
-// Create connection
-global $conn;
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-function inserirEventos($sql){
-    global $conn;
-if(isset($_POST["submit"]) == "submit" && isset($_POST["eventTitle"]) != "")
-  {
-    $sql = "INSERT INTO events (title, event_date)
-        VALUES ('".$_POST['eventTitle']."', '".$_POST['eventDate']."')";
-    if (mysqli_query($conn,$sql)) {
-        echo "New event added successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-  }
-}
-
-function executarComando($sql) {
-    global $conn;
-    if (mysqli_query($conn, $sql)) {
-        return true;
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($GLOBALS['$conn']);
-        return false;
-    }
-}
-
-function executarComandoRetornarID($sql) {
-    global $conn;
-    if (mysqli_query($conn, $sql)) {
-        $ultimo_id = mysqli_insert_id($conn);
-        return $ultimo_id;
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        return 0;
-    }
-}
-
-function retornarDados($sql) {
-    global $conn;
-    $resultado = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($resultado) > 0) {
-        return $resultado;
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        //return 0;
-    }
-}
-*/
