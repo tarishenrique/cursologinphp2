@@ -7,7 +7,7 @@
         <form action="includes/login.salvar.php" method="POST">
 
             <div>
-                <input type="text" class="form-control" placeholder="Usuário ou Email" name="txtLogin">
+                <input type="text" class="form-control" placeholder="Usuário ou Email" name="txtUsuario">
             </div>
 
             <div>
@@ -16,10 +16,20 @@
 
             <br>
 
-            <button type="submit" name="botaoSubmit" class="btn btn-primary">Login</button>
+            <button type="submit" name="submit" class="btn btn-primary">Login</button>
         </form>
 
+        <?php
 
+        if (isset($_GET["error"])) {
+
+            if ($_GET["error"] == "emptyinput") {
+                echo "<h1>Preencha todos os campos</h1>";
+            } else if ($_GET["error"] == "loginincorreto") {
+                echo "<h1>Informações de login incorretas</h1>";
+            }
+        }
+        ?>
 
     </div>
 </div>

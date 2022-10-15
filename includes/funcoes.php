@@ -96,3 +96,41 @@ function criarUsuario($conn, $nome, $email, $usuario, $senha)
     header("location: ../signup.php?error=nenhum");
     exit();
 }
+
+function emptyInputLogin($usuario, $senha)
+{
+
+    if (empty($usuario) || empty($senha)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
+
+function loginUser($conn, $usuario, $senha)
+{
+    $usuarioExiste = usuarioExiste($conn, $usuario, $usuario);
+
+    if ($usuarioExiste === false) {
+        header("location: ../login.php?error=loginincorreto");
+        exit();
+    }
+
+    $senhaHashed = $usuarioExiste["usersSenha"];
+    $verificarSenha = password_verify($senha, $senhaHashed);
+
+    if ($verificarSenha === false) {
+        header("location: ../login.php?error=loginincorreto");
+        exit();
+    } else if ($verificarSenha === true) {
+        session_start();
+        $_SESSION["userid"] = $usuarioExiste["usersId"];
+        $_SESSION["userusuario"] = $usuarioExiste["usersUsuario"];
+        $_SESSION["usernome"] = $usuarioExiste["usersNome"];
+        $_SESSION["useradmin"] = $usuarioExiste["admin"];
+        header("location: ../index.php");
+        exit();
+    }
+}

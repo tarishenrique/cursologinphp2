@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,12 +45,31 @@
                         <li class="nav-item">
                             <a class="nav-link" href="blog.php">Encontre Blogs</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signup.php">Cadastro de Usuário</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
+
+                        <?php
+                        if (isset($_SESSION["userusuario"])) {
+                            echo "<li class='nav-item'>
+                                <a class='nav-link' href='perfil.php'>Perfil do Usuário</a>
+                            </li>";
+                            echo "<li class='nav-item'>
+                                <a class='nav-link' href='logout.php'>Sair</a>
+                            </li>";
+                        } else {
+
+                            echo "<li class='nav-item'>
+                                <a class='nav-link' href='login.php'>Login</a>
+                            </li>";
+                        }
+
+                        if (!empty($_SESSION["useradmin"])) {
+
+                            echo "<li class='nav-item'>
+                                <a class='nav-link' href='signup.php'>Cadastro de Usuário</a>
+                            </li>";
+                        }
+                        ?>
+
+
 
                     </ul>
                 </div>

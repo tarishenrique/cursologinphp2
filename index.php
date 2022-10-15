@@ -3,6 +3,12 @@
 <div class="row">
     <div class="col">
 
+        <?php
+        if (isset($_SESSION["usernome"])) {
+            echo "<p> Seja bem vindo " . $_SESSION["usernome"] . "</p>";
+        }
+        ?>
+
         <h1>Curso de Login em PHP</h1>
         <p>Como criar um sistema de login em PHP Procedural.</p>
     </div>
